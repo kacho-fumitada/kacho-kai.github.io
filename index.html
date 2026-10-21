@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161a1b">
+  <meta name="description" content="賀頂会の公式ウェブサイト。会の理念、活動内容、行事、会員案内、会則、代表者紹介、お知らせなどをご案内します。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="賀頂会">
+  <meta property="og:title" content="賀頂会 | 伝統をつなぎ、未来をひらく">
+  <meta property="og:description" content="人と人を結び、受け継がれる文化を未来へ。賀頂会のご案内。">
+  <meta property="og:image" content="assets/gold-kamon.webp">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <title>賀頂会 | 伝統をつなぎ、未来をひらく</title>
+  <style>
+    /* ========= 配色：ここを変えるだけで全体の色が変わります ========= */
+    :root { --ink:#17201f; --dark:#151b1a; --deep:#202b28; --gold:#a9823d; --gold-light:#dec38d;
+            --paper:#faf8f3; --cream:#f1ede3; --white:#fff; --muted:#64706b; --line:#ded9cb; }
+    /* ========= 基本設定 ========= */
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:90px; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif; line-height:1.85; }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--gold); }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2,.serif { font-family:"Yu Mincho","Hiragino Mincho ProN",serif; }
+    h1 { font-size:clamp(2.8rem,6vw,5.8rem); letter-spacing:.16em; line-height:1.3; margin:14px 0 20px; }
+    h2 { font-size:clamp(1.85rem,3.6vw,2.75rem); letter-spacing:.08em; line-height:1.45; margin:8px 0 22px; }
+    h3 { font-size:1.13rem; letter-spacing:.05em; margin-bottom:12px; }
+    p { margin-bottom:16px; }
+    .container { width:min(1140px,calc(100% - 40px)); margin-inline:auto; }
+    .section { padding:92px 0; }
+    .section-soft { background:var(--cream); }
+    .section-dark { background:var(--dark); color:var(--white); }
+    .eyebrow { display:block; color:var(--gold); font-size:.76rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; }
+    .section-head { margin-bottom:42px; }
+    .section-head p { max-width:740px; color:var(--muted); }
+    .section-dark .section-head p { color:#c0c6c0; }
+    .grid { display:grid; gap:24px; }
+    .grid-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .grid-4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .card { padding:30px; background:var(--white); border:1px solid var(--line); border-radius:3px; }
+    .card p:last-child { margin:0; }
+    .number { color:var(--gold); font-family:Georgia,serif; font-size:2rem; line-height:1; display:block; margin-bottom:20px; }
+    .button { display:inline-block; padding:13px 26px; border:1px solid var(--gold); background:var(--gold); color:#fff; font-size:.88rem; font-weight:700; letter-spacing:.08em; transition:background .2s; }
+    .button:hover { background:#84632a; color:#fff; }
+    .button-outline { background:transparent; color:var(--gold-light); border-color:var(--gold-light); }
+    .button-outline:hover { background:var(--gold-light); color:#111; }
+    .fineprint { font-size:.83rem; color:var(--muted); }
+    .border-top { border-top:1px solid var(--line); }
+    .note { padding:13px 20px; font-size:.83rem; background:#fff8e7; color:#65502d; border-bottom:1px solid #e6d8b8; }
+    .note strong { margin-right:8px; }
+
+    /* ========= 画像：HTMLから直接ドラッグできない背景画像として表示 =========
+       ※閲覧者による保存やスクリーンショットを完全に防ぐことはできません。 */
+    .brand-mark,.hero-mark,.profile-photo,.footer-mark,.symbol-gold,.symbol-silver {
+      background-position:center; background-repeat:no-repeat; background-size:contain;
+      user-select:none; -webkit-user-select:none; pointer-events:none;
+    }
+    .brand-mark,.hero-mark,.symbol-gold { background-image:url("assets/gold-kamon.webp"); }
+    .footer-mark,.symbol-silver { background-image:url("assets/silver-kamon.webp"); }
+    .profile-photo { background-image:url("assets/profile.gif"); }
+
+    /* ========= ヘッダー ========= */
+    .site-header { background:var(--dark); color:white; border-bottom:1px solid #39403b; position:sticky; top:0; z-index:10; }
+    .header-inner { display:flex; align-items:center; justify-content:space-between; min-height:76px; gap:22px; }
+    .site-brand { display:flex; align-items:center; gap:12px; color:#fff; font-family:"Yu Mincho",serif; font-size:1.45rem; font-weight:700; letter-spacing:.12em; white-space:nowrap; }
+    .site-brand:hover { color:var(--gold-light); }
+    .brand-mark { width:43px; height:43px; flex-shrink:0; }
+    .desktop-nav { display:flex; align-items:center; flex-wrap:wrap; gap:18px; }
+    .desktop-nav a { font-size:.78rem; color:#e6e7df; letter-spacing:.04em; }
+    .desktop-nav a:hover { color:var(--gold-light); }
+    .mobile-nav { display:none; }
+
+    /* ========= メインビジュアル ========= */
+    .hero { background:radial-gradient(circle at 75% 35%,#35413a 0%,#171e1b 55%,#111614 100%); color:#fff; overflow:hidden; }
+    .hero-inner { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:30px; min-height:615px; padding:65px 0; }
+    .hero-lead { color:var(--gold-light); letter-spacing:.27em; font-size:.88rem; }
+    .hero-description { color:#d1d7d0; max-width:530px; line-height:2.1; }
+    .hero-actions { display:flex; gap:13px; flex-wrap:wrap; margin-top:32px; }
+    .hero-mark { width:min(100%,490px); aspect-ratio:1; margin:auto; box-shadow:0 18px 65px #0608077a; border:1px solid #766138; border-radius:3px; }
+    .hero-bottom { border-top:1px solid #ffffff20; padding:18px 0; color:#c1c6bd; font-size:.82rem; letter-spacing:.08em; }
+
+    /* ========= お知らせ ========= */
+    .news { border-top:1px solid var(--line); }
+    .news a { display:grid; grid-template-columns:105px 120px 1fr 24px; align-items:center; gap:14px; padding:20px 4px; border-bottom:1px solid var(--line); }
+    .news a:hover { background:#f0e9d9; color:var(--ink); }
+    .news time { font-family:Georgia,serif; font-size:.86rem; color:var(--muted); }
+    .tag { display:inline-block; border:1px solid #cbbd9e; color:#79613c; padding:2px 10px; font-size:.73rem; text-align:center; }
+    .arrow { font-size:1.3rem; text-align:right; color:var(--gold); }
+
+    /* ========= 会の紹介 ========= */
+    .intro-layout { display:grid; grid-template-columns:1.05fr .95fr; gap:55px; align-items:center; }
+    .intro-quote { background:var(--dark); color:#f8f4e8; border-left:5px solid var(--gold); padding:48px; font-family:"Yu Mincho",serif; font-size:clamp(1.35rem,2.7vw,2rem); line-height:2; }
+    .intro-quote small { display:block; margin-top:22px; font-family:sans-serif; font-size:.75rem; color:var(--gold-light); letter-spacing:.15em; }
+    .mini-label { color:var(--gold); font-size:.75rem; letter-spacing:.12em; }
+    .values .card { border-top:3px solid var(--gold); }
+    .list-simple { padding-left:1.4em; margin:0; }
+    .list-simple li { margin:9px 0; }
+
+    /* ========= 代表者 ========= */
+    .profile-layout { display:grid; grid-template-columns:350px 1fr; align-items:center; gap:65px; }
+    .profile-frame { padding:15px; background:#202725; border:1px solid #665637; }
+    .profile-photo { width:100%; aspect-ratio:1; background-color:#080808; background-size:cover; }
+    .profile-role { color:var(--gold-light); font-size:.82rem; letter-spacing:.15em; }
+    .profile-name { font-family:"Yu Mincho",serif; font-size:2rem; margin:8px 0 24px; }
+    .profile-text { color:#e5e7de; }
+    .profile-caption { font-size:.8rem; color:#bdc1b8; margin:12px 0 0; }
+
+    /* ========= スケジュール・沿革 ========= */
+    .season { background:white; padding:28px; border-top:3px solid var(--gold); }
+    .season strong { display:block; color:var(--gold); font-family:Georgia,serif; font-size:.8rem; letter-spacing:.1em; margin-bottom:10px; }
+    .timeline { border-left:2px solid #c7b68f; margin-left:15px; padding-left:34px; }
+    .timeline-item { position:relative; padding:0 0 30px; }
+    .timeline-item:before { content:""; position:absolute; left:-42px; top:9px; width:12px; height:12px; border-radius:50%; background:var(--gold); border:3px solid var(--paper); }
+    .timeline-item strong { color:var(--gold); }
+    .timeline-item p { margin:3px 0 0; }
+    .mini-table { width:100%; border-collapse:collapse; }
+    .mini-table th,.mini-table td { padding:17px 15px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    .mini-table th { width:150px; font-weight:700; color:#77623f; background:#f5f0e5; }
+
+    /* ========= 会員・規約・FAQ ========= */
+    .steps { counter-reset:steps; }
+    .steps .card { position:relative; padding-top:50px; }
+    .steps .card::before { counter-increment:steps; content:"STEP 0" counter(steps); position:absolute; top:19px; left:30px; color:var(--gold); font-family:Georgia,serif; font-size:.72rem; letter-spacing:.08em; }
+    .rule-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }
+    .rule-item { padding:22px 26px; border:1px solid #d5ccba; background:#fff; }
+    .rule-item strong { display:block; color:#806333; margin-bottom:7px; }
+    details { background:#fff; border:1px solid var(--line); margin-bottom:11px; }
+    details summary { cursor:pointer; padding:18px 22px; font-weight:700; list-style:none; display:flex; justify-content:space-between; gap:15px; }
+    details summary::-webkit-details-marker { display:none; }
+    details summary::after { content:"＋"; font-weight:400; color:var(--gold); }
+    details[open] summary::after { content:"－"; }
+    details > p { margin:0; padding:0 22px 20px; color:#535e58; }
+
+    /* ========= 家紋とお問い合わせ ========= */
+    .symbol { border:1px solid var(--line); background:#fff; padding:18px; text-align:center; }
+    .symbol-gold,.symbol-silver { aspect-ratio:1; width:100%; }
+    .symbol h3 { margin:16px 0 4px; }
+    .contact { background:var(--deep); color:#fff; text-align:center; padding:75px 0; }
+    .contact h2 { color:#fff; }
+    .contact p { color:#d3d6cd; }
+    .contact-card { max-width:750px; padding:28px; border:1px solid #6a705f; margin:28px auto 0; text-align:left; }
+    .contact-card strong { color:var(--gold-light); }
+    .contact-card p:last-child { margin:0; }
+
+    /* ========= フッター ========= */
+    .site-footer { background:#111614; color:#c0c6c0; padding:50px 0 18px; }
+    .footer-inner { display:grid; grid-template-columns:150px 1fr auto; gap:32px; align-items:center; }
+    .footer-mark { width:150px; aspect-ratio:1; border:1px solid #424b47; }
+    .footer-name { color:white; font-family:"Yu Mincho",serif; font-size:2rem; letter-spacing:.12em; margin-bottom:7px; }
+    .footer-links { display:flex; flex-wrap:wrap; gap:10px 18px; font-size:.8rem; }
+    .copyright { border-top:1px solid #333d38; font-size:.75rem; color:#a8afa7; padding-top:16px; margin-top:35px; text-align:center; }
+
+    /* ========= スマホ対応 ========= */
+    @media(max-width:900px) {
+      .desktop-nav { display:none; }
+      .mobile-nav { display:block; position:relative; background:transparent; border:0; margin:0; }
+      .mobile-nav summary { display:block; padding:7px 12px; color:white; background:transparent; border:1px solid #7c795e; list-style:none; cursor:pointer; font-size:.83rem; }
+      .mobile-nav summary::-webkit-details-marker { display:none; }
+      .mobile-nav summary::after { content:""; }
+      .mobile-nav nav { position:absolute; right:0; top:45px; display:grid; width:230px; max-height:75vh; overflow:auto; background:var(--dark); padding:15px; border:1px solid #605a46; box-shadow:0 14px 30px #0005; }
+      .mobile-nav a { padding:9px; color:#fff; border-bottom:1px solid #ffffff22; font-size:.85rem; }
+      .hero-inner,.intro-layout { grid-template-columns:1fr; }
+      .hero-inner { padding:50px 0; min-height:unset; }
+      .hero-visual { max-width:400px; width:90%; margin:15px auto 0; }
+      .profile-layout { grid-template-columns:260px 1fr; gap:30px; }
+      .grid-4 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .footer-inner { grid-template-columns:110px 1fr; }
+      .footer-mark { width:110px; }
+      .footer-links { grid-column:1/-1; }
+    }
+    @media(max-width:620px) {
+      .container { width:min(100% - 30px,1140px); }
+      .section { padding:65px 0; }
+      h1 { letter-spacing:.1em; }
+      .grid-2,.grid-3,.grid-4,.profile-layout,.rule-list { grid-template-columns:1fr; }
+      .hero-description { font-size:.9rem; }
+      .hero-mark { max-width:340px; }
+      .card { padding:24px; }
+      .intro-quote { padding:29px; }
+      .profile-frame { max-width:360px; margin:auto; }
+      .news a { grid-template-columns:80px 75px 1fr; gap:7px; }
+      .news a span:nth-child(3) { grid-column:1/-1; }
+      .news .arrow { display:none; }
+      .mini-table th { width:100px; }
+      .footer-inner { grid-template-columns:90px 1fr; gap:18px; }
+      .footer-mark { width:90px; }
+      .footer-name { font-size:1.5rem; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+
+  <!-- 公開するときはこの注意文を削除してください。 -->
+  <div class="note"><div class="container"><strong>編集用サンプル</strong>会の経歴・氏名・活動実績・会費・連絡先は、公開前に正式な情報へ変更してください。</div></div>
+
+  <!-- ===== ヘッダー：金の家紋 ===== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="site-brand" href="#top" aria-label="賀頂会 トップページ"><span class="brand-mark" aria-hidden="true"></span>賀頂会</a>
+      <nav class="desktop-nav" aria-label="メインメニュー">
+        <a href="#about">賀頂会とは</a><a href="#philosophy">理念</a><a href="#activity">活動</a><a href="#president">代表者</a>
+        <a href="#history">沿革</a><a href="#membership">入会案内</a><a href="#rules">会則</a><a href="#faq">よくある質問</a><a href="#contact">お問い合わせ</a>
+      </nav>
+      <details class="mobile-nav"><summary>☰ メニュー</summary>
+        <nav aria-label="スマートフォンメニュー">
+          <a href="#about">賀頂会とは</a><a href="#philosophy">理念</a><a href="#activity">活動</a><a href="#president">代表者</a>
+          <a href="#schedule">年間行事</a><a href="#history">沿革・組織</a><a href="#membership">入会案内</a><a href="#rules">会則</a>
+          <a href="#emblem">会章</a><a href="#faq">よくある質問</a><a href="#contact">お問い合わせ</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== 1. メインビジュアル：金の家紋 ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div>
+          <span class="hero-lead">KACHOKAI OFFICIAL WEBSITE</span>
+          <h1 id="hero-title">賀頂会</h1>
+          <p class="serif" style="font-size:clamp(1.3rem,2.6vw,2rem);color:var(--gold-light);letter-spacing:.07em;">伝統をつなぎ、未来をひらく。</p>
+          <p class="hero-description">人と人とのつながりを大切に。受け継がれる文化への敬意を忘れずに。賀頂会は、親睦・文化・学び・社会との交流を軸に、次の時代へ歩んでいく会を目指します。</p>
+          <div class="hero-actions"><a class="button" href="#about">賀頂会について</a><a class="button button-outline" href="#membership">入会のご案内</a></div>
+        </div>
+        <div class="hero-visual"><div class="hero-mark" role="img" aria-label="金色の賀頂会の家紋"></div></div>
+      </div>
+      <div class="hero-bottom"><div class="container">伝統と品格を礎に　—　和・敬・継承・発展</div></div>
+    </section>
+
+    <!-- ===== 2. お知らせ：日付と本文を編集してください ===== -->
+    <section class="section" id="news">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Information</span><h2>お知らせ</h2><p>会からのご案内や行事情報などをお届けする欄です。以下は掲載例です。</p></div>
+        <div class="news">
+          <a href="#membership"><time datetime="2026-10-21">2026.10.21</time><span class="tag">掲載例</span><span>賀頂会ウェブサイトのご案内・入会案内ページ</span><span class="arrow">→</span></a>
+          <a href="#schedule"><time datetime="2026-10-21">2026.10.21</time><span class="tag">行事例</span><span>年間行事・交流活動の掲載について</span><span class="arrow">→</span></a>
+          <a href="#activity"><time datetime="2026-10-21">2026.10.21</time><span class="tag">活動例</span><span>文化活動・社会交流のご案内</span><span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. 会について ===== -->
+    <section class="section section-soft" id="about">
+      <div class="container intro-layout">
+        <div>
+          <span class="eyebrow">About Kachokai</span><h2>賀頂会とは</h2>
+          <p>賀頂会は、礼節を重んじ、相互理解を深め、文化と交流を育んでいくことを目指す団体として紹介するためのページです。</p>
+          <p>私たちは、過去から受け継がれる価値を尊びながら、現代にふさわしい柔軟な発想と開かれた交流を大切にします。会員同士の親睦だけではなく、学び合い、協力し合う機会を増やすことを活動の中心に据えます。</p>
+          <p>小さな出会いと日々の積み重ねから、新しい文化、信頼、未来への可能性が生まれることを願っています。</p>
+          <p class="fineprint">※上記は活動理念の例文です。団体の正式な設立目的に合わせて編集できます。</p>
+        </div>
+        <div class="intro-quote">志を同じくする人々が集い、<br>心を交わし、知を深め、<br>次代につながる足跡を残す。<small>THE SPIRIT OF KACHOKAI</small></div>
+      </div>
+    </section>
+
+    <!-- ===== 4. 理念 ===== -->
+    <section class="section" id="philosophy">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Philosophy</span><h2>基本理念</h2><p>賀頂会の活動を支える基本的な考え方です。</p></div>
+        <div class="grid grid-3 values">
+          <article class="card"><span class="number">01</span><h3>和を尊ぶ</h3><p>一人ひとりの考えと個性を尊重し、互いに支え合う和やかな関係を築きます。</p></article>
+          <article class="card"><span class="number">02</span><h3>礼節を大切にする</h3><p>挨拶、感謝、思いやりを忘れず、信頼を土台とした交流を目指します。</p></article>
+          <article class="card"><span class="number">03</span><h3>文化を受け継ぐ</h3><p>歴史や伝統への敬意を持ち、その価値を次の世代へと伝えます。</p></article>
+          <article class="card"><span class="number">04</span><h3>学びを広げる</h3><p>知識や経験を共有し、誰もが新しい発見を得られる環境を育みます。</p></article>
+          <article class="card"><span class="number">05</span><h3>交流を深める</h3><p>分野や世代の垣根を越え、豊かな出会いと協力の場を創ります。</p></article>
+          <article class="card"><span class="number">06</span><h3>未来をひらく</h3><p>変化に向き合う柔軟さと挑戦心を持ち、持続可能な活動を追求します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. 代表者：アップロードされたGIFを自動再生 ===== -->
+    <section class="section section-dark" id="president">
+      <div class="container profile-layout">
+        <div><div class="profile-frame"><div class="profile-photo" role="img" aria-label="拍手する代表者のアニメーションプロフィール画像"></div></div><p class="profile-caption">代表者プロフィール（GIFアニメーション）</p></div>
+        <div><span class="eyebrow">Representative</span><h2>代表者ご挨拶</h2>
+          <p class="profile-role">賀頂会　代表</p><p class="profile-name">お名前を入力してください</p>
+          <p class="profile-text">このたびは賀頂会のウェブサイトをご覧いただき、誠にありがとうございます。</p>
+          <p class="profile-text">人と人との縁を大切にし、互いに高め合える会をつくること。それが私たちの目指す姿です。伝統を尊重しながら新しい挑戦を恐れず、心豊かな交流の場を広げてまいります。</p>
+          <p class="profile-text">今後とも、皆さまのご理解と温かいご協力を賜りますようお願い申し上げます。</p>
+          <p class="fineprint" style="color:#afb8b0;">※ご挨拶と役職・氏名は編集用の例文です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. 活動紹介 ===== -->
+    <section class="section" id="activity">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Our Activities</span><h2>主な活動</h2><p>活動分野に合わせて項目を追加・削除できます。以下は賀頂会の活動メニューの構成例です。</p></div>
+        <div class="grid grid-3">
+          <article class="card"><span class="mini-label">CULTURE</span><h3>文化・伝統の継承</h3><p>歴史や地域文化への理解を深め、伝統の魅力を紹介する企画を構想します。</p></article>
+          <article class="card"><span class="mini-label">COMMUNITY</span><h3>会員親睦・交流</h3><p>懇談会や交流会などを通じて、会員同士の信頼とつながりを育みます。</p></article>
+          <article class="card"><span class="mini-label">LEARNING</span><h3>講話・勉強会</h3><p>幅広い分野に触れ、互いの知見を共有するための学びの機会を設けます。</p></article>
+          <article class="card"><span class="mini-label">EVENT</span><h3>記念行事・催事</h3><p>節目となる記念日や季節の行事を大切にし、特別な交流の機会を創ります。</p></article>
+          <article class="card"><span class="mini-label">ARCHIVE</span><h3>記録・広報活動</h3><p>活動記録やお知らせを分かりやすくまとめ、情報発信を充実させます。</p></article>
+          <article class="card"><span class="mini-label">PARTNERSHIP</span><h3>地域・団体との連携</h3><p>趣旨に賛同する人々や団体との交流を通じて、新たな可能性を探ります。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. 年間行事 ===== -->
+    <section class="section section-soft" id="schedule">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Annual Calendar</span><h2>年間行事のご案内</h2><p>四季を通じた活動計画の例です。正式な開催日程が確定次第、こちらに掲載してください。</p></div>
+        <div class="grid grid-4">
+          <article class="season"><strong>SPRING / 春</strong><h3>新年度交流会</h3><p>新しい出会いと目標を分かち合う交流の場。</p></article>
+          <article class="season"><strong>SUMMER / 夏</strong><h3>文化・学習企画</h3><p>講演や勉強会を通じて見識を広げる季節。</p></article>
+          <article class="season"><strong>AUTUMN / 秋</strong><h3>記念行事</h3><p>活動の成果を振り返り、文化を楽しむ催し。</p></article>
+          <article class="season"><strong>WINTER / 冬</strong><h3>年末懇親会</h3><p>一年を総括し、互いの労をねぎらう機会。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. 沿革・会の情報 ===== -->
+    <section class="section" id="history">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">History & Organization</span><h2>沿革・組織概要</h2><p>実際の設立年や役員体制などに差し替えるための記入例です。</p></div>
+        <div class="grid grid-2" style="gap:45px;">
+          <div><h3>沿革</h3><div class="timeline">
+            <div class="timeline-item"><strong>20XX年</strong><p>賀頂会の設立・発足（記入欄）</p></div>
+            <div class="timeline-item"><strong>20XX年</strong><p>初回交流会・記念行事の開催（記入欄）</p></div>
+            <div class="timeline-item"><strong>20XX年</strong><p>文化活動・広報活動の開始（記入欄）</p></div>
+            <div class="timeline-item"><strong>現在</strong><p>最新の取り組み・活動状況（記入欄）</p></div>
+          </div></div>
+          <div><h3>組織概要</h3><table class="mini-table"><tbody>
+            <tr><th scope="row">名称</th><td>賀頂会</td></tr>
+            <tr><th scope="row">英語表記</th><td>KACHOKAI（表記例）</td></tr>
+            <tr><th scope="row">代表者</th><td>お名前を入力してください</td></tr>
+            <tr><th scope="row">設立</th><td>設立年月日を入力してください</td></tr>
+            <tr><th scope="row">所在地</th><td>公開する所在地を入力してください</td></tr>
+            <tr><th scope="row">活動内容</th><td>文化・親睦・学習・交流など</td></tr>
+            <tr><th scope="row">事務局</th><td>連絡窓口を入力してください</td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 9. 役割と運営 ===== -->
+    <section class="section section-soft" id="organization">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Administration</span><h2>運営体制</h2><p>役職名は必要に応じて編集できる構成例です。</p></div>
+        <div class="grid grid-4">
+          <div class="card"><h3>会長・代表</h3><p>会の代表として活動方針を示し、全体の運営を統括します。</p></div>
+          <div class="card"><h3>副会長</h3><p>代表を補佐し、各活動の連携や進行を支援します。</p></div>
+          <div class="card"><h3>幹事・運営委員</h3><p>行事や会員交流などの日々の企画・運営を担います。</p></div>
+          <div class="card"><h3>事務局</h3><p>入会、連絡、記録、会計などの事務手続きを行います。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 10. 入会案内 ===== -->
+    <section class="section" id="membership">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Membership</span><h2>入会のご案内</h2><p>ともに学び、交流し、会を育んでくださる皆さまへ。参加条件・会費・申込方法は、正式な運営方針に従って設定してください。</p></div>
+        <div class="grid grid-3 steps">
+          <div class="card"><h3>お問い合わせ</h3><p>活動内容や入会条件について、事務局へご確認ください。</p></div>
+          <div class="card"><h3>お申し込み</h3><p>所定の申込方法に従って、必要事項をご提出ください。</p></div>
+          <div class="card"><h3>ご案内・参加</h3><p>事務局からの連絡をご確認のうえ、各種活動へご参加ください。</p></div>
+        </div>
+        <div class="card" style="margin-top:24px;">
+          <h3>入会に関する基本事項（記入欄）</h3>
+          <div class="grid grid-2">
+            <div><strong>会員区分</strong><p>正会員・賛助会員など、必要に応じて設定してください。</p><strong>入会資格</strong><p>入会条件や審査・承認の方法を記入してください。</p></div>
+            <div><strong>入会金・年会費</strong><p>未設定。正式な金額・納入方法を記入してください。</p><strong>退会・会員情報</strong><p>退会申出や個人情報の管理方針を記入してください。</p></div>
+          </div>
+          <a class="button" href="#contact">入会について問い合わせる</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 11. 会則 ===== -->
+    <section class="section section-soft" id="rules">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Rules & Policies</span><h2>会則・運営方針</h2><p>以下は構成を考えるための草案です。正式な会則や定款ではありません。</p></div>
+        <div class="rule-list">
+          <div class="rule-item"><strong>第1条　名称</strong>本会は「賀頂会」と称する。</div>
+          <div class="rule-item"><strong>第2条　目的</strong>親睦・文化・学習・交流を通じ、相互理解を深めることを目的とする。</div>
+          <div class="rule-item"><strong>第3条　事業</strong>会の目的に沿った行事、交流、情報発信等の活動を行う。</div>
+          <div class="rule-item"><strong>第4条　会員</strong>会員区分、入退会、権利義務等は別途定める。</div>
+          <div class="rule-item"><strong>第5条　役員</strong>必要な役職、選任方法及び任期は別途定める。</div>
+          <div class="rule-item"><strong>第6条　会議</strong>総会等の開催、議決及び運営手続は別途定める。</div>
+          <div class="rule-item"><strong>第7条　会計</strong>活動に必要な経費及び会計処理は適正に管理する。</div>
+          <div class="rule-item"><strong>第8条　改正</strong>会則の改正は所定の承認手続により行う。</div>
+        </div>
+        <p class="fineprint" style="margin-top:20px;">※法的な定款・団体規程として利用する場合は、実際の組織形態に合わせて別途整備してください。</p>
+      </div>
+    </section>
+
+    <!-- ===== 12. 活動報告 ===== -->
+    <section class="section" id="reports">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Reports & Journal</span><h2>活動報告・記録</h2><p>行事が開催された際に、日時、内容、写真、成果などを追記できる記事欄です。</p></div>
+        <div class="grid grid-3">
+          <article class="card"><span class="tag">掲載テンプレート</span><h3 style="margin-top:18px;">交流会のご報告</h3><p>開催日・会場・参加者・当日の内容を掲載するためのスペースです。</p><a href="#contact" class="mini-label">詳細は事務局へ →</a></article>
+          <article class="card"><span class="tag">掲載テンプレート</span><h3 style="margin-top:18px;">文化企画の活動記録</h3><p>文化体験や学習企画などの実施内容をまとめるためのスペースです。</p><a href="#contact" class="mini-label">詳細は事務局へ →</a></article>
+          <article class="card"><span class="tag">掲載テンプレート</span><h3 style="margin-top:18px;">年間活動の振り返り</h3><p>一年間の成果、会の歩み、今後の計画を紹介するためのスペースです。</p><a href="#contact" class="mini-label">詳細は事務局へ →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 13. 家紋：金と銀 ===== -->
+    <section class="section section-soft" id="emblem">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Official Emblem</span><h2>賀頂会の会章</h2><p>サイトを象徴する二種類の家紋を掲げています。金色をメインビジュアルに、銀色をフッターに使用しています。</p></div>
+        <div class="grid grid-2">
+          <div class="symbol"><div class="symbol-gold" role="img" aria-label="金色の賀頂会の家紋"></div><h3>金色の会章</h3><p class="fineprint">メインカラー／ヘッダー・サイトアイコン</p></div>
+          <div class="symbol"><div class="symbol-silver" role="img" aria-label="銀色の賀頂会の家紋"></div><h3>銀色の会章</h3><p class="fineprint">サブカラー／フッター</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 14. FAQ：detailsタグだけで開閉します ===== -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Frequently Asked Questions</span><h2>よくあるご質問</h2><p>お問い合わせの前にご確認ください。回答は運用に合わせて編集してください。</p></div>
+        <details><summary>賀頂会はどのような団体ですか？</summary><p>文化・親睦・交流・学びなどを活動テーマとする会として紹介しています。正式な事業内容や団体の位置づけは「賀頂会とは」に記載してください。</p></details>
+        <details><summary>入会するにはどうすればよいですか？</summary><p>「入会のご案内」をご覧ください。具体的な受付先・申込書・承認手続は、会の運営が決まり次第ご案内します。</p></details>
+        <details><summary>入会金や年会費はいくらですか？</summary><p>本サンプルでは金額を設定していません。公式な会費が決まった際に、入会ページとともに更新してください。</p></details>
+        <details><summary>会員以外も行事に参加できますか？</summary><p>公開行事と会員限定行事を設ける場合には、それぞれの参加条件をお知らせページに明記してください。</p></details>
+        <details><summary>会の最新情報はどこで分かりますか？</summary><p>サイト内の「お知らせ」と「年間行事」の欄で最新情報を掲載する想定です。</p></details>
+        <details><summary>お問い合わせや取材の申し込みはできますか？</summary><p>お問い合わせ先が設定された後、事務局へご連絡ください。実際の連絡先はページ下部に追加してください。</p></details>
+        <details><summary>個人情報はどのように管理しますか？</summary><p>取得する情報、利用目的、管理体制、開示等の手続を定めたプライバシーポリシーを、公開前に整備してください。</p></details>
+      </div>
+    </section>
+
+    <!-- ===== 15. お問い合わせ ===== -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <span class="eyebrow">Contact</span><h2>お問い合わせ</h2>
+        <p>入会、行事、会の活動などに関するご連絡はこちらへ。<br>連絡先はご利用のメールアドレス等に書き換えてください。</p>
+        <div class="contact-card"><strong>賀頂会 事務局</strong>
+          <p>メールアドレス：ここに公式メールアドレスを記入<br>所在地：ここに所在地（公開可能な場合のみ）を記入<br>受付時間：ここに対応時間を記入</p>
+          <p class="fineprint" style="color:#bfc8bc;">HTMLとCSSだけのサイトのため、送信機能付きフォームは設置していません。メールリンクの設定は、アドレス確定後に行ってください。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== フッター：銀の家紋 ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-mark" role="img" aria-label="銀色の賀頂会の家紋"></div>
+        <div><div class="footer-name">賀頂会</div><p style="font-size:.85rem;margin:0;">伝統をつなぎ、未来をひらく。<br>人と人の縁を大切にする会へ。</p></div>
+        <nav class="footer-links" aria-label="フッターメニュー"><a href="#top">ページ上部</a><a href="#about">会の紹介</a><a href="#activity">活動</a><a href="#membership">入会案内</a><a href="#rules">会則</a><a href="#contact">お問い合わせ</a></nav>
+      </div>
+      <div class="copyright">&copy; 2026 賀頂会 KACHOKAI. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
