@@ -1,30 +1,32 @@
-賀頂会 ウェブサイト（HTML＋CSSのみ）
+賀頂会 ウェブサイト【背景透過版・三つ桜】
+========================================
 
-【公開・編集方法】
-1. index.html と assets フォルダを同じ場所に置いてください。
-2. index.html をダブルクリックするとブラウザで表示できます。
-3. テキストエディタで index.html を開き、名前・文章・日付・組織情報などを編集してください。
-4. 色は index.html 上部の :root で変更できます。
-5. HTML内部の「=====」コメントを目印に各コーナーを編集してください。
-6. 公開時は「編集用サンプル」の案内と仮の情報を削除・修正してください。
-7. ウェブホスティングに index.html と assets フォルダを一緒にアップロードしてください。
+今回の修正：金色・銀色の三つ桜の画像を透過画像に変更しました。
+元の赤・黄色の背景は除去し、金属的な質感はそのまま残しています。
+ヘッダー・メイン画像・会章・フッター・ファビコン・ホーム画面用アイコンに反映済みです。
+代表者のGIFアニメーションも維持しています（元から透過GIF）。
 
-【画像ファイル】
-assets/gold-kamon.webp   金の会章：ヘッダー、会章紹介
-assets/silver-kamon.webp 銀の会章：フッター、会章紹介
-assets/profile.gif       プロフィール：GIFアニメーション
-assets/favicon.ico       ブラウザ用ファビコン
-assets/favicon-32.png    ブラウザ用32pxアイコン
-assets/apple-touch-icon.png iPhoneなどのホーム画面用
-assets/site-icon-512.png 512pxサイトアイコン（アプリ等に設定可能）
+【公開方法】
+GitHubリポジトリ kacho-fumitada/kacho-kai.github.io のルートに
+index.html と assets フォルダを丸ごと上書きアップロードしてください。
+その後、コミットを保存してください。GitHubの公開内容は自動更新していません。
 
-【重要：画像保護について】
-画像を通常の<img>タグではなくCSS背景として配置し、画像部分を
-ドラッグしにくくしています。ただし、ウェブで表示する画像は閲覧者へ
-配信されるため、開発者ツール、通信内容、スクリーンショット等による
-コピーやダウンロードを技術的に完全禁止することはできません。
-また、この構築はJavaScriptを一切使用していません。
+【編集方法】
+index.html をメモ帳やVisual Studio Codeで開いて編集してください。
+コードはHTMLとCSSのみで、JavaScriptは使用していません。
+画像の参照パスは冒頭の <style> 内にまとめています。
 
-【初期状態】
-掲載されている組織概要、代表者名、会則、行事、問い合わせ先などは
-実際の情報が未提供のため、編集用テキストのままです。
+【画像の内訳】
+assets/gold-kamon.webp               背景透過の金色の三つ桜（サイト表示用）
+assets/silver-kamon.webp             背景透過の銀色の三つ桜（サイト表示用）
+assets/gold-kamon-transparent.png    背景透過の金色の三つ桜（PNG保存版）
+assets/silver-kamon-transparent.png  背景透過の銀色の三つ桜（PNG保存版）
+assets/profile.gif                  代表者アニメーションGIF（元画像のまま）
+assets/favicon.ico                  ファビコン（透過）
+assets/favicon-32.png               32pxファビコン（透過）
+assets/apple-touch-icon.png         ホーム画面用画像（透過PNG）
+assets/site-icon-512.png            512pxサイトアイコン（透過PNG）
+
+※画像はCSS背景で表示し、通常のドラッグ保存を抑制していますが、
+  ブラウザで表示する以上、取得や画面撮影を完全に防ぐことはできません。
+※一部のホーム画面環境では、OSが自動的に背景色を付与することがあります。

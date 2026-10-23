@@ -9,10 +9,10 @@
   <meta property="og:site_name" content="賀頂会">
   <meta property="og:title" content="賀頂会 | 伝統をつなぎ、未来をひらく">
   <meta property="og:description" content="人と人を結び、受け継がれる文化を未来へ。賀頂会のご案内。">
-  <meta property="og:image" content="assets/gold-kamon.webp">
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:image" content="assets/gold-kamon.webp?v=20261023-trans">
+  <link rel="icon" href="assets/favicon.ico?v=20261023-trans" sizes="any">
+  <link rel="icon" type="image/png" href="assets/favicon-32.png?v=20261023-trans" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20261023-trans">
   <title>賀頂会 | 伝統をつなぎ、未来をひらく</title>
   <style>
     /* ========= 配色：ここを変えるだけで全体の色が変わります ========= */
@@ -54,14 +54,14 @@
     .note { padding:13px 20px; font-size:.83rem; background:#fff8e7; color:#65502d; border-bottom:1px solid #e6d8b8; }
     .note strong { margin-right:8px; }
 
-    /* ========= 画像：HTMLから直接ドラッグできない背景画像として表示 =========
+    /* ========= 画像：透過PNGから作成した透過WebPをCSS背景として表示 =========
        ※閲覧者による保存やスクリーンショットを完全に防ぐことはできません。 */
     .brand-mark,.hero-mark,.profile-photo,.footer-mark,.symbol-gold,.symbol-silver {
       background-position:center; background-repeat:no-repeat; background-size:contain;
       user-select:none; -webkit-user-select:none; pointer-events:none;
     }
-    .brand-mark,.hero-mark,.symbol-gold { background-image:url("assets/gold-kamon.webp"); }
-    .footer-mark,.symbol-silver { background-image:url("assets/silver-kamon.webp"); }
+    .brand-mark,.hero-mark,.symbol-gold { background-image:url("assets/gold-kamon.webp?v=20261023-trans"); } /* 背景透過 */
+    .footer-mark,.symbol-silver { background-image:url("assets/silver-kamon.webp?v=20261023-trans"); } /* 背景透過 */
     .profile-photo { background-image:url("assets/profile.gif"); }
 
     /* ========= ヘッダー ========= */
@@ -81,7 +81,7 @@
     .hero-lead { color:var(--gold-light); letter-spacing:.27em; font-size:.88rem; }
     .hero-description { color:#d1d7d0; max-width:530px; line-height:2.1; }
     .hero-actions { display:flex; gap:13px; flex-wrap:wrap; margin-top:32px; }
-    .hero-mark { width:min(100%,490px); aspect-ratio:1; margin:auto; box-shadow:0 18px 65px #0608077a; border:1px solid #766138; border-radius:3px; }
+    .hero-mark { width:min(100%,490px); aspect-ratio:1; margin:auto; filter:drop-shadow(0 16px 24px #0007); }
     .hero-bottom { border-top:1px solid #ffffff20; padding:18px 0; color:#c1c6bd; font-size:.82rem; letter-spacing:.08em; }
 
     /* ========= お知らせ ========= */
@@ -104,7 +104,7 @@
     /* ========= 代表者 ========= */
     .profile-layout { display:grid; grid-template-columns:350px 1fr; align-items:center; gap:65px; }
     .profile-frame { padding:15px; background:#202725; border:1px solid #665637; }
-    .profile-photo { width:100%; aspect-ratio:1; background-color:#080808; background-size:cover; }
+    .profile-photo { width:100%; aspect-ratio:1; background-color:transparent; background-size:cover; }
     .profile-role { color:var(--gold-light); font-size:.82rem; letter-spacing:.15em; }
     .profile-name { font-family:"Yu Mincho",serif; font-size:2rem; margin:8px 0 24px; }
     .profile-text { color:#e5e7de; }
@@ -150,7 +150,7 @@
     /* ========= フッター ========= */
     .site-footer { background:#111614; color:#c0c6c0; padding:50px 0 18px; }
     .footer-inner { display:grid; grid-template-columns:150px 1fr auto; gap:32px; align-items:center; }
-    .footer-mark { width:150px; aspect-ratio:1; border:1px solid #424b47; }
+    .footer-mark { width:150px; aspect-ratio:1; }
     .footer-name { color:white; font-family:"Yu Mincho",serif; font-size:2rem; letter-spacing:.12em; margin-bottom:7px; }
     .footer-links { display:flex; flex-wrap:wrap; gap:10px 18px; font-size:.8rem; }
     .copyright { border-top:1px solid #333d38; font-size:.75rem; color:#a8afa7; padding-top:16px; margin-top:35px; text-align:center; }
@@ -199,7 +199,7 @@
   <!-- 公開するときはこの注意文を削除してください。 -->
   <div class="note"><div class="container"><strong>編集用サンプル</strong>会の経歴・氏名・活動実績・会費・連絡先は、公開前に正式な情報へ変更してください。</div></div>
 
-  <!-- ===== ヘッダー：金の家紋 ===== -->
+  <!-- ===== ヘッダー：透過背景の金の三つ桜 ===== -->
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="site-brand" href="#top" aria-label="賀頂会 トップページ"><span class="brand-mark" aria-hidden="true"></span>賀頂会</a>
@@ -218,7 +218,7 @@
   </header>
 
   <main>
-    <!-- ===== 1. メインビジュアル：金の家紋 ===== -->
+    <!-- ===== 1. メインビジュアル：透過背景の金の三つ桜 ===== -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-inner">
         <div>
@@ -228,7 +228,7 @@
           <p class="hero-description">人と人とのつながりを大切に。受け継がれる文化への敬意を忘れずに。賀頂会は、親睦・文化・学び・社会との交流を軸に、次の時代へ歩んでいく会を目指します。</p>
           <div class="hero-actions"><a class="button" href="#about">賀頂会について</a><a class="button button-outline" href="#membership">入会のご案内</a></div>
         </div>
-        <div class="hero-visual"><div class="hero-mark" role="img" aria-label="金色の賀頂会の家紋"></div></div>
+        <div class="hero-visual"><div class="hero-mark" role="img" aria-label="透過背景の金色の三つ桜の賀頂会会章"></div></div>
       </div>
       <div class="hero-bottom"><div class="container">伝統と品格を礎に　—　和・敬・継承・発展</div></div>
     </section>
@@ -279,7 +279,7 @@
       <div class="container profile-layout">
         <div><div class="profile-frame"><div class="profile-photo" role="img" aria-label="拍手する代表者のアニメーションプロフィール画像"></div></div><p class="profile-caption">代表者プロフィール（GIFアニメーション）</p></div>
         <div><span class="eyebrow">Representative</span><h2>代表者ご挨拶</h2>
-          <p class="profile-role">賀頂会　代表</p><p class="profile-name">賀頂 文忠（かちょう ふみただ）</p>
+          <p class="profile-role">賀頂会　代表</p><p class="profile-name">お名前を入力してください</p>
           <p class="profile-text">このたびは賀頂会のウェブサイトをご覧いただき、誠にありがとうございます。</p>
           <p class="profile-text">人と人との縁を大切にし、互いに高め合える会をつくること。それが私たちの目指す姿です。伝統を尊重しながら新しい挑戦を恐れず、心豊かな交流の場を広げてまいります。</p>
           <p class="profile-text">今後とも、皆さまのご理解と温かいご協力を賜りますようお願い申し上げます。</p>
@@ -330,11 +330,11 @@
           <div><h3>組織概要</h3><table class="mini-table"><tbody>
             <tr><th scope="row">名称</th><td>賀頂会</td></tr>
             <tr><th scope="row">英語表記</th><td>KACHOKAI（表記例）</td></tr>
-            <tr><th scope="row">代表者</th><td>賀頂文忠</td></tr>
-            <tr><th scope="row">設立</th><td>2026年10月21日</td></tr>
-            <tr><th scope="row">所在地</th><td>岐阜県</td></tr>
+            <tr><th scope="row">代表者</th><td>お名前を入力してください</td></tr>
+            <tr><th scope="row">設立</th><td>設立年月日を入力してください</td></tr>
+            <tr><th scope="row">所在地</th><td>公開する所在地を入力してください</td></tr>
             <tr><th scope="row">活動内容</th><td>文化・親睦・学習・交流など</td></tr>
-            <tr><th scope="row">事務局</th><td>kacho.fumitada@gmail.com</td></tr>
+            <tr><th scope="row">事務局</th><td>連絡窓口を入力してください</td></tr>
           </tbody></table></div>
         </div>
       </div>
@@ -365,8 +365,8 @@
         <div class="card" style="margin-top:24px;">
           <h3>入会に関する基本事項（記入欄）</h3>
           <div class="grid grid-2">
-            <div><strong>会員区分</strong><p>正会員または賛助会員を募集中。</p><strong>入会資格</strong><p>誰でも参加可能。</p></div>
-            <div><strong>入会金・年会費</strong><p>完全無料。</p><strong>退会・会員情報</strong><p>お問い合わせメールにて退会の意思を記述してください。</p></div>
+            <div><strong>会員区分</strong><p>正会員・賛助会員など、必要に応じて設定してください。</p><strong>入会資格</strong><p>入会条件や審査・承認の方法を記入してください。</p></div>
+            <div><strong>入会金・年会費</strong><p>未設定。正式な金額・納入方法を記入してください。</p><strong>退会・会員情報</strong><p>退会申出や個人情報の管理方針を記入してください。</p></div>
           </div>
           <a class="button" href="#contact">入会について問い合わせる</a>
         </div>
@@ -403,13 +403,13 @@
       </div>
     </section>
 
-    <!-- ===== 13. 家紋：金と銀 ===== -->
+    <!-- ===== 13. 会章：三つ桜の金と銀 ===== -->
     <section class="section section-soft" id="emblem">
       <div class="container">
-        <div class="section-head"><span class="eyebrow">Official Emblem</span><h2>賀頂会の会章</h2><p>サイトを象徴する二種類の家紋を掲げています。金色をメインビジュアルに、銀色をフッターに使用しています。</p></div>
+        <div class="section-head"><span class="eyebrow">Official Emblem</span><h2>賀頂会の会章</h2><p>賀頂会の会章は、三つの桜を組み合わせた意匠です。背景透過の金色の会章をヘッダー・メインビジュアル・サイトアイコンに、背景透過の銀色の会章をフッターに使用しています。</p></div>
         <div class="grid grid-2">
-          <div class="symbol"><div class="symbol-gold" role="img" aria-label="金色の賀頂会の家紋"></div><h3>金色の会章</h3><p class="fineprint">メインカラー／ヘッダー・サイトアイコン</p></div>
-          <div class="symbol"><div class="symbol-silver" role="img" aria-label="銀色の賀頂会の家紋"></div><h3>銀色の会章</h3><p class="fineprint">サブカラー／フッター</p></div>
+          <div class="symbol"><div class="symbol-gold" role="img" aria-label="透過背景の金色の三つ桜の賀頂会会章"></div><h3>金色の三つ桜</h3><p class="fineprint">背景透過／ヘッダー・サイトアイコン</p></div>
+          <div class="symbol"><div class="symbol-silver" role="img" aria-label="透過背景の銀色の三つ桜の賀頂会会章"></div><h3>銀色の三つ桜</h3><p class="fineprint">背景透過／フッター</p></div>
         </div>
       </div>
     </section>
@@ -434,18 +434,18 @@
         <span class="eyebrow">Contact</span><h2>お問い合わせ</h2>
         <p>入会、行事、会の活動などに関するご連絡はこちらへ。<br>連絡先はご利用のメールアドレス等に書き換えてください。</p>
         <div class="contact-card"><strong>賀頂会 事務局</strong>
-          <p>メールアドレス：kacho.fumitada@gmail.com<br>所在地：岐阜県<br>受付時間：9:00~20:00</p>
+          <p>メールアドレス：ここに公式メールアドレスを記入<br>所在地：ここに所在地（公開可能な場合のみ）を記入<br>受付時間：ここに対応時間を記入</p>
           <p class="fineprint" style="color:#bfc8bc;">HTMLとCSSだけのサイトのため、送信機能付きフォームは設置していません。メールリンクの設定は、アドレス確定後に行ってください。</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== フッター：銀の家紋 ===== -->
+  <!-- ===== フッター：透過背景の銀の三つ桜 ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-mark" role="img" aria-label="銀色の賀頂会の家紋"></div>
+        <div class="footer-mark" role="img" aria-label="透過背景の銀色の三つ桜の賀頂会会章"></div>
         <div><div class="footer-name">賀頂会</div><p style="font-size:.85rem;margin:0;">伝統をつなぎ、未来をひらく。<br>人と人の縁を大切にする会へ。</p></div>
         <nav class="footer-links" aria-label="フッターメニュー"><a href="#top">ページ上部</a><a href="#about">会の紹介</a><a href="#activity">活動</a><a href="#membership">入会案内</a><a href="#rules">会則</a><a href="#contact">お問い合わせ</a></nav>
       </div>
